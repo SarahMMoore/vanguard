@@ -17,12 +17,24 @@
 <!-- WRAP CONTENT IN VALIDATED, SEMANTIC HTML5 (SEE HINTS FOLDER LINKED TO IN THE CANVAS INSTRUCTIONS)-->
     
 <header>
-    <h1>Vanguard</h1>
-        <h2>Main Navigation</h2>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <section class="logo">
+        <img src="vanguard-logo.svg" alt="logo" class="logo">
+        <h1>Vanguard</h1>
+            <h2>Main Navigation</h2>
+            <input type="checkbox" id="menuCheckbox" aria-label"Toggle navigation menu"/>
+            <label for="menuCheckbox" class="hamburger-icon">
+                <span>"bar"</span>
+                <span>"bar"</span>
+                <span>"bar"</span>
+            </label>
+            <nav class="menu">                 
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+    </section>
 </header>
 
 <main>
