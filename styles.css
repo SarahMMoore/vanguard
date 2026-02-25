@@ -1,7 +1,6 @@
-/* CSS BY SARAH MOORE */
+/* CSS BY YOUR NAME */
 
 /* IMPORTED FONTS*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 /* IMPORT "INTER" FROM GOOGLE FONTS"
 
 /* CSS RESET */
@@ -64,146 +63,84 @@ table {
 }
 
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
-@media only screen and (min-width: 400px) {
-	body{
-		font-family: var(--font);
-	}
-    /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
 
-    /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+/* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
 
-    /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
-    #innovation{
-        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-        height: 80vh;
-        display: grid;
-        place-items: center;
-        text-align: center;
-        padding: 1rem;
-        overflow: hidden;
-    }
+/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    /* ADD FLOATING SVG LOGO BEFORE THE H1 */
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        position: relative;
-        content: "";
-        right: 25px;
-        left:-.5rem;
-        width: 3.75rem;
-        height: 3.75rem;
-        background: url('images/vanguard-logo.svg') no-repeat center/contain;
-        background-color: var(--black);
-    }
-    .logo{
-        display: block; 
-        height: 45px;         
-    }
-    h1 {
-        background-color: var(--black);
-        color: var(--blue);
-    }
-    header h1{
-        margin: 0;
-        margin-left: 15px;
-        font-size: 1.5rem;
-        flex-grow: 1; 
-    }
-    .menu a{
-        text-decoration: none;
-        color: var(--white);
-    }
-     .menu ul {
-        flex-direction: column;
-        gap: 0;
-    }
-    .menu li {
-        padding: 15px;
-    }
-    .menu-toggle, .hamburger{
-        display: none;
-    }
-    .menu {
-        display: none; /* Hide standard links */
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #fff;
-        flex-direction: column;
-        text-align: center;
-        border-bottom: 2px solid #eee;
-    }
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-    .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: var(--black);
-    }
-    .menu-toggle:checked ~ .nav-links {
-        display: flex;
-    }
+/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
+ {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
+    height: 80vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;
+}
 
-    /* THIS ONE IS DONE FOR YOU */
-    #bar-chart {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        align-items: flex-end;
-        justify-content: space-around;
-        gap: 1rem;
-        height: 300px;
-        width: 100%;
-        max-width: 800px;
-        padding: 1rem;
-        position: relative;
-    }
-    /* ADD ON TRANSITION ON HEIGHT */
-    .bar {
-        width: 50px;
-        background: var(--charcoal);
-        border-radius: 10px;
-        position: relative;
-        transition: ;
-        height: 0;
-    }
-    /* THIS ONE IS DONE FOR YOU */
-    .bar::after {
-        content: attr(data-year);
-        position: absolute;
-        bottom: -25px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-        font-weight: bold;
-        color: var(--white);
-    }
-    @keyframes stepUp {
-        0% {
-            height: 0;
-        }
-        100% {
-            height: var(--height);
-        }
-    }
-    /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-    .bar {
-        animation: stepUp 1s ease-in-out forwards;
-    }
+/* ADD FLOATING SVG LOGO BEFORE THE H1 */
+ {
+    content: "";
+
+    left:-.5rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    background: url('images/vanguard-logo.svg') no-repeat center/contain;
 
 }
+/* THIS ONE IS DONE FOR YOU */
+#bar-chart {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 1rem;
+    height: 300px;
+    width: 100%;
+    max-width: 800px;
+    padding: 1rem;
+    position: relative;
+}
+/* ADD ON TRANSITION ON HEIGHT */
+.bar {
+    width: 50px;
+    background: var(--charcoal);
+    border-radius: 10px;
+    position: relative;
+    transition: ;
+    height: 0;
+}
+/* THIS ONE IS DONE FOR YOU */
+.bar::after {
+    content: attr(data-year);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--white);
+}
+@keyframes stepUp {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: var(--height);
+    }
+}
+/* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
+.bar {
+    animation: stepUp 1s ease-in-out forwards;
+}
+
+
 /* MEDIA QUERIES (MEDIUM) */ 
 
     #results {
