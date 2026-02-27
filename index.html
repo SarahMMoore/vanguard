@@ -67,7 +67,7 @@
                         <p>Identify opportunities for rapid growth and high-value acquisitions.</p>
                     </section>
 
-                    <section class="digital"
+                    <section class="digital">
                         <h3>Digital Transformation</h3>
                         <p>Stay at the forefront of industry advancements with AI, blockchain, and automation.</p>
                     </section>
@@ -87,7 +87,7 @@
             <section id="results">
                 <div class="container">
                     <h2>Proven Results</h2>
-                    <p>Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.<p>
+                    <p>Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.</p>
                     
                     <section class="profits">
                         <h3>Profits</h3>
@@ -109,28 +109,45 @@
                         </table>
                     
 
-                    <section class="growth>"
-                        <h3>Growth</h3>
+                    <section class="growth>">
+                        <div class="container">
+                            <h3>Growth</h3>
         <!-- CODE PROVIDED FOR YOU, NOTHING TO DO FOR THE BAR CHART IN THE HTML-->
-                        <div  id="bar-chart">
-                             <div class="bar" data-year="2020" style="--height: 30%;"></div>
-                             <div class="bar" data-year="2021" style="--height: 50%;"></div>
-                            <div class="bar" data-year="2022" style="--height: 70%;"></div>
-                            <div class="bar" data-year="2023" style="--height: 85%;"></div>
-                             <div class="bar" data-year="2024" style="--height: 100%;"></div>
-                        </div>
+                            <div  id="bar-chart">
+                                <div class="bar" data-year="2020" style="--height: 30%;"></div>
+                                <div class="bar" data-year="2021" style="--height: 50%;"></div>
+                                <div class="bar" data-year="2022" style="--height: 70%;"></div>
+                                <div class="bar" data-year="2023" style="--height: 85%;"></div>
+                                <div class="bar" data-year="2024" style="--height: 100%;"></div>
+                            </div>
+                        </div>              
                     </section>
                 </div>
             </section>    
         </main>
 
         <footer>
-            <section id="contact-menu">
+            <section id="contact-form">
                 <div class="container">
                     <h2>Contact Us</h2>
                     <p>Want to take your business to the next level? Get in touch with our elite team today.</p>
-                    <form>
-                        <!-- TO DO: Form elements go here -->
+                    <!-- TO DO: Form elements go here -->
+                    <form id="contact-form">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+
+                        <label for="industry">Industry</label>
+                        <input type="text" id="industry" name="industry">
+
+                        <label for="help">How can we help you?</label>
+                        <textarea id="help" name="help"></textarea>
+
                         <button type="submit">Submit</button>
                     </form>
                 </div>
