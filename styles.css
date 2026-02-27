@@ -161,7 +161,7 @@ table {
         margin-bottom: 2.125rem;
     }
     thead tr th {
-        background-color:var(--black); /* Header row color */
+        background-color:var(--black); 
         color: var(--white);        
         padding: 1.125rem;
         border: 0.16rem solid var(--charcoal);
@@ -181,15 +181,41 @@ table {
     footer{
         background-color: var(--black);
         color: var(--white);
+        padding-bottom: 1.875rem;
     }
     #contact-form{
-        padding-top: 2.1875rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
     #contact-form p{
         padding-top: 1rem;
         line-height: 1.5rem;
     }
-    #contact-form
+    label{
+        font-size: .875rem;
+    }
+    input, select, textarea {
+        width: 100%;
+        height: 2rem;
+        padding: .625rem;
+        margin-bottom: 1rem;
+        box-sizing: border-box; 
+        border: 0.125rem solid var(--blue);
+        }
+    textarea{
+        min-height: 5rem;
+    }
+    button {
+        border-radius: 0.4375rem;
+        width: 100%;
+        background-color: var(--blue);
+        color: var(--white);
+        font-size: .75rem;
+        font-weight: 700;
+        padding: .625rem;
+        border: none;
+        cursor: pointer;
+    }
     #contact-info{
         text-align: center;
         line-height: 1.5rem;
