@@ -74,17 +74,12 @@ table {
     background-color: var(--black);
     color: var(--blue);
   }
-
-
-
-
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
 #innovation {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
@@ -98,8 +93,7 @@ table {
 h1 {
     display: inline-block; 
     vertical-align: middle;
-    line-height: 50px; 
-    margin: 0; 
+
 }
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
  #logo h1::before{
@@ -109,8 +103,7 @@ h1 {
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
-    float: left;
-    margin-right: .5rem;
+
 }
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
