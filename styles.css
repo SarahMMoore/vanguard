@@ -86,16 +86,18 @@ table {
         font-weight: bold;
     }
     h2{
-        font-size: 1.125rem;
+        font-size: 1.375rem;
         font-weight: bold;
         padding-left: 0.625rem;
     }
     h3{
-        font-size: large;
+        font-size: 1.25rem;
         font-weight: bold;
+        padding-bottom: 1.25rem;
+        padding-left: 0.625rem;
     }
     p{
-        font-size: .85rem;
+        font-size: .875rem;
         line-height: 1.188rem;
     }
     /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
@@ -113,51 +115,81 @@ table {
         padding-top: 2.125rem; 
     }    
     #expertise p{
-
         padding-top: 1.688rem;
         padding-bottom: 2.5rem;
-
+    }
+    #offer{
+        padding-bottom: 4.375rem;
     }
     #offer h2{
         padding-bottom: 2.1875rem;
-        
     }
-    .growth{
-        background-color: var(--blue);
-        color: var(--white);
+    #offer h3{
+        padding-left: 0.8125rem;
     }
-    .investment{
+    .growth, .investment, .mergers, .digital, .advisory, .innovation{
         background-color: var(--blue);
         color: var(--white);
-    }    
-    .mergers{
-        background-color: var(--blue);
-        color: var(--white);
-    }
-    .digital{
-        background-color: var(--blue);
-        color: var(--white);
-    }
-    .advisory{
-        background-color: var(--blue);
-        color: var(--white);
-    }
-    .innovation{
-        background-color: var(--blue);
-        color: var(--white);
+        margin-bottom: .875rem;
+        padding: 1.875rem 1.25rem 1rem 0.875rem;
+        border-radius: 0.4375rem;
     }
     #results{
         background-color: var(--blue);
         color: var(--white);
+        padding-bottom: 1.5rem;
+    }
+    #results h2{
+        padding-top: 2.125rem;
+        line-height: 1.5rem;
+        padding-bottom: 1.625rem;
+    }
+    #results p{
+        padding-right: 1.5rem;
+        padding-bottom: 1.625rem;
+    }
+    .profits h3{
+        padding-bottom: 2.25rem;
     }
     .profits table{
         background-color: var(--black);
         color: var(--white);
     }
+    table {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2.125rem;
+    }
+    thead tr th {
+        background-color:var(--black); /* Header row color */
+        color: var(--white);        
+        padding: 1.125rem;
+        border: 0.16rem solid var(--charcoal);
+    }
+    tbody tr:nth-child(odd) {
+        background-color: var(--black); 
+    }
+    tbody tr:nth-child(even) {
+        background-color: var(--charcoal); 
+    }
+    td {
+        padding: 1.125rem 0;
+        padding: 1.125rem 1.4375rem;
+        border: 0.16rem solid var(--charcoal);
+    }
+    
     footer{
         background-color: var(--black);
         color: var(--white);
     }
+    #contact-form{
+        padding-top: 2.1875rem;
+    }
+    #contact-form p{
+        padding-top: 1rem;
+        line-height: 1.5rem;
+    }
+    #contact-form
     #contact-info{
         text-align: center;
         line-height: 1.5rem;
@@ -178,6 +210,8 @@ table {
         background: url('images/vanguard-logo.svg') no-repeat center/contain;
         
     }
+    #growth h3{
+    }
     /* THIS ONE IS DONE FOR YOU */
     #bar-chart {
         display: grid;
@@ -188,7 +222,7 @@ table {
         height: 300px;
         width: 100%;
         max-width: 800px;
-        padding: 1rem;
+        padding: 0rem 1rem 1rem 1rem;
         position: relative;
     }
     /* ADD ON TRANSITION ON HEIGHT */
@@ -210,6 +244,7 @@ table {
         font-size: 1rem;
         font-weight: bold;
         color: var(--white);
+
     }
     @keyframes stepUp {
         0% {
