@@ -82,6 +82,8 @@ table {
         grid-template-columns: 1fr 1fr;
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
+        position: relative;
+        z-index: 10;
     }    
     /* ADD FLOATING SVG LOGO BEFORE THE H1 */
     #logo::before{
@@ -93,6 +95,8 @@ table {
         height: 3.75rem;
         background: url('images/vanguard-logo.svg') no-repeat center/contain;
         margin-right: 0.5rem;
+        animation: logoFloat 10s ease-in-out infinite; /* Always active */
+        will-change: transform;
     }
     #logo {
         display: flex;
@@ -104,16 +108,17 @@ table {
         flex-wrap: wrap;
         justify-content: flex-end;
         align-items: center;
-        height: 3.75rem;
+        min-height: 3.75rem;
     }
     nav ul {
         width: 100%;
-        margin:0;
+        margin-top: 2rem;
         padding:0;
         list-style:none;
         overflow:hidden;
         text-align:right;
         max-height: 0;
+        transition: max-height 0.3s ease-out; 
     }
     nav h2 {
         visibility:hidden;
@@ -121,22 +126,24 @@ table {
     }
     nav li a {
         display:block;
-        font-size:0.875rem;
-        padding:1rem;
+        font-size: 1.5rem;
+        padding: 1rem;
         text-transform:uppercase;
         font-weight:bold;
         text-decoration:none;
-        color: var(--white);
+        color: var(--blue);
         transition: background-color .3s ease-in;
+        text-align: center;
+        cursor: default;
     }
     nav a:hover, nav input:hover {
-        background-color:var(--black);
+        background-color:var(--blue);
+        color: var(--black);  
     }
     nav label {
-        cursor: pointer;
+        cursor: default;
         display: inline-block;
         user-select: none;
-
     }
     nav label span {
         background-color: var(--white);
@@ -164,26 +171,13 @@ table {
     nav input {
         display:none;
     }
-    /* ADDS HEIGHT THE NAV WHEN IT'S DROPPED DOWN */
     nav input:checked ~ ul {
-        max-height: 500px;
+        max-height: 100vh; 
+        transition: max-height .3s ease-in;
     }
-    /* MAKES THE MIDDLE LINE OF THE HAMBURGER DISAPPEAR */
-    nav input:checked ~ label span {
-        background: transparent;
-    }
-    /* ROTATES THE TOP LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
-    nav input:checked ~ label span:before {
-        transform: rotate(-45deg);
-    }
-    /* ROTATES THE BOTTOM LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
-    nav input:checked ~ label span:after {
-        transform: rotate(45deg);
-    }
-    /* LOCATION OF THE HAMBURGER */
-    nav input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
-        top: 0;
-    }  
+    header:has(nav input:checked) #logo::before {
+    animation: logoFloat 10s ease-in-out infinite;
+}
     main{
         background-color: #EAEAEA;
         color: #000000;
@@ -240,17 +234,28 @@ table {
         background-color: rgb(33, 33, 33, 0.10); 
         backdrop-filter: blur(12px);
         z-index: 2;     
-        padding-top: 1.75rem;    
+        padding: 2rem 1rem 0;    
     }
     #innovation h2, #innovation p {
         background-color: transparent; 
         padding-bottom: 1rem;
     }
-    #innovation button{
+    #innovation button {
         font-family: var(--font);
-        font-size: .95rem;
-        width: 12.5rem;
+        font-size: .875rem;
+        width: 12rem;
+        padding: 1rem;
+        background-color: var(--blue);
+        color: var(--white);
+        border-radius: 5px;
+        cursor: default;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+
     }
+    #innovation button:hover {
+        background-color: var(--red);
+    }  
     #expertise{
         padding-top: 2.125rem; 
     }    
@@ -268,6 +273,37 @@ table {
     #offer h3{
         padding-left: 0.8125rem;
         padding-right: 1em;
+    }
+    main:has(#offer .growth:hover, 
+          #offer .investment:hover, 
+          #offer .mergers:hover, 
+          #offer .digital:hover, 
+          #offer .advisory:hover, 
+          #offer .innovation:hover) 
+    main:has(#offer .growth:hover, 
+          #offer .investment:hover, 
+          #offer .mergers:hover, 
+          #offer .digital:hover, 
+          #offer .advisory:hover, 
+          #offer .innovation:hover)  {
+    transform: translateY(-.5rem);
+    }
+    #offer .growth:hover, 
+    #offer .investment:hover, 
+    #offer .mergers:hover, 
+    #offer .digital:hover, 
+    #offer .advisory:hover, 
+    #offer .innovation:hover {
+        transform: translateY(-.5rem);
+    }
+    
+    #offer .growth, 
+    #offer .investment, 
+    #offer .mergers, 
+    #offer .digital, 
+    #offer .advisory, 
+    #offer .innovation {
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .growth, .investment, .mergers, .digital, .advisory, .innovation{
         background-color: var(--blue);
@@ -323,6 +359,7 @@ table {
     #contact-form{
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
+        
     }
     #contact-form p{
         padding-top: 1rem;
@@ -342,7 +379,7 @@ table {
         border: 0.125rem solid var(--blue);
     }
     input:focus, textarea:focus {
-        outline: 0.125rem solid --red; 
+        outline: 0.125rem solid var(--red); 
         border-color: transparent;
     }
     textarea{
@@ -357,11 +394,11 @@ table {
         font-weight: 700;
         padding: .625rem;
         border: none;
-        cursor: pointer;
+        cursor: default;
         transition: background-color 0.3s ease;
     }
     button:hover {
-        filter: brightness(90%); 
+        background-color: var(--red);
     }  
     #contact-info{
         text-align: center;
@@ -415,6 +452,11 @@ table {
     100% {
         height: var(--height);
     }
+}
+@keyframes logoFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(1rem) } /* Adjust -10px for more/less float */
+    100% { transform: translateY(0); }
 }
 }
 
