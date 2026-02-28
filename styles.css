@@ -1,8 +1,8 @@
 /* CSS BY YOUR NAME */
 
 /* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
-
+/* IMPORT "INTER" FROM GOOGLE FONTS"*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
@@ -75,47 +75,115 @@ table {
         font-family:var(--font);
     }
     header {
-    background-color: #000000;
-    color: #007BFF;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    padding: 1rem 0;
-    }
-    header .container {
-        display: contents;
-    }
-    h1 {
-        grid-column: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-    }
+        background-color: #000000;
+        color: #007BFF;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }    
     /* ADD FLOATING SVG LOGO BEFORE THE H1 */
-    #logo h1::before {
+    #logo::before{
         content: "";
         display: inline-block;
-        text-align: right;
-        left:-.5rem;
+        position: relative;
+        left:.5rem;
         width: 3.75rem;
         height: 3.75rem;
         background: url('images/vanguard-logo.svg') no-repeat center/contain;
-        grid-column: 1;
+        margin-right: 0.5rem;
     }
-    nav {
-        grid-column: 3;
-        justify-self: end;
-        padding-right: 5%;
+    #logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+      
+        
+        height: 3.75rem;
     }
     nav ul {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-        margin: 0;
+        width: 100%;
+        margin:0;
+        padding:0;
+        list-style:none;
+        overflow:hidden;
+        text-align:right;
+        max-height: 0;
     }
-    
- 
+    nav h2 {
+        visibility:hidden;
+        height: 1px;
+    }
+    nav li a {
+        display:block;
+        font-size:0.875rem;
+        padding:1rem;
+        text-transform:uppercase;
+        font-weight:bold;
+        text-decoration:none;
+        color: white;
+        transition: background-color .3s ease-in;
+    }
+    nav a:hover, nav input:hover {
+        background-color: black;
+    }
+    nav label {
+        cursor: pointer;
+        display: inline-block;
+        padding-top: 1.5rem;
+        user-select: none;
+
+    }
+    nav label span {
+        background-color: white;
+        display: block;
+        height: .25rem;
+        position: relative;
+        transition: background-color .3s ease-out;
+        width: 2rem;
+    }
+    nav label span:before, label span:after {
+        background: white;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+    }
+    nav label span:before {
+        top: .75rem;
+    }
+    nav label span:after {
+        top: -.75rem;
+    }
+    nav input {
+        display:none;
+    }
+    /* ADDS HEIGHT THE NAV WHEN IT'S DROPPED DOWN */
+    nav input:checked ~ ul {
+        max-height: 500px;
+    }
+    /* MAKES THE MIDDLE LINE OF THE HAMBURGER DISAPPEAR */
+    nav input:checked ~ label span {
+        background: transparent;
+    }
+    /* ROTATES THE TOP LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+    nav input:checked ~ label span:before {
+        transform: rotate(-45deg);
+    }
+    /* ROTATES THE BOTTOM LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+    nav input:checked ~ label span:after {
+        transform: rotate(45deg);
+    }
+    /* LOCATION OF THE HAMBURGER */
+    nav input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+        top: 0;
+    }  
     main{
         background-color: #EAEAEA;
         color: #000000;
@@ -128,6 +196,7 @@ table {
     h1 {
         font-size: 1.5rem;
         font-weight: 700;
+        padding-left: 0.8125rem;
     }
     h2{
         font-size: 1.375rem;
@@ -147,12 +216,12 @@ table {
     /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
     #innovation {
         background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-    height: 80vh;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 1rem;
-    overflow: hidden;
+        height: 80vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 1rem;
+        overflow: hidden;
     }
     #expertise{
         padding-top: 2.125rem; 
@@ -220,8 +289,6 @@ table {
         padding: 1.125rem 1.4375rem;
         border: 0.16rem solid var(--charcoal);
     }
-    
-    
     #contact-form{
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
@@ -231,7 +298,9 @@ table {
         line-height: 1.5rem;
     }
     label{
+        display: block;
         font-size: .875rem;
+        margin-bottom: 0.25rem;
     }
     input, select, textarea {
         width: 100%;
@@ -240,7 +309,12 @@ table {
         margin-bottom: 1rem;
         box-sizing: border-box; 
         border: 0.125rem solid var(--blue);
-        }
+    }
+        
+    input:focus, textarea:focus {
+        outline: 0.125rem solid --red; 
+        border-color: transparent;
+    }
     textarea{
         min-height: 5rem;
     }
@@ -254,68 +328,68 @@ table {
         padding: .625rem;
         border: none;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
+    button:hover {
+        filter: brightness(90%); /* Simple hover effect */
+    }  
     #contact-info{
         text-align: center;
-        line-height: 1.5rem;
     }
     #contact-info p{
         font-size: 1rem;
+        line-height: 1.5rem;
     }
     #contact-info a{
         color: var(--blue);
     }
     
-    #growth h3{
-    }
-    /* THIS ONE IS DONE FOR YOU */
-    #bar-chart {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        align-items: flex-end;
-        justify-content: space-around;
-        gap: 1rem;
-        height: 300px;
-        width: 100%;
-        max-width: 800px;
-        padding: 0rem 1rem 1rem 1rem;
-        position: relative;
-    }
-    /* ADD ON TRANSITION ON HEIGHT */
-    .bar {
-        width: 50px;
-        background: var(--charcoal);
-        border-radius: 10px;
-        position: relative;
-        transition: ;
+   /* THIS ONE IS DONE FOR YOU */
+#bar-chart {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 1rem;
+    height: 300px;
+    width: 100%;
+    max-width: 800px;
+    padding: 1rem;
+    position: relative;
+}
+/* ADD ON TRANSITION ON HEIGHT */
+.bar {
+    width: 50px;
+    background: var(--charcoal);
+    border-radius: 10px;
+    position: relative;
+    transition: height 0.5s ease;
+    height: 0;
+    animation: stepUp 1s ease-in-out forwards;
+}
+/* THIS ONE IS DONE FOR YOU */
+.bar::after {
+    content: attr(data-year);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--white);
+}
+@keyframes stepUp {
+    0% {
         height: 0;
     }
-    /* THIS ONE IS DONE FOR YOU */
-    .bar::after {
-        content: attr(data-year);
-        position: absolute;
-        bottom: -25px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 1rem;
-        font-weight: bold;
-        color: var(--white);
-
+    100% {
+        height: var(--height);
     }
-    @keyframes stepUp {
-        0% {
-            height: 0;
-        }
-        100% {
-            height: var(--height);
-        }
-    }
-    /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-    .bar {
-        animation: stepUp 1s ease-in-out forwards;
-    }
-
 }
+}
+
+
+
 /* MEDIA QUERIES (MEDIUM) */ 
 
     #results {
