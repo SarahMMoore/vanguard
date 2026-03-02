@@ -70,6 +70,7 @@ table {
     body {
         min-width: 25rem;
         font-family: var(--font);
+        width: 100%;
     }
     header{
         background-color: #000000;
@@ -79,6 +80,98 @@ table {
         font-size: 1.875rem;
         font-weight: 700;
     }
+    header .container {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    #menu-toggle {
+        display: none;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    nav h2 {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    nav label {
+        cursor: pointer;
+        display: block;
+        padding: 1rem;
+        z-index: 100;
+    }
+    nav ul {
+        display: none; 
+        list-style: none;
+        width: 100%; /* Spans the full width for centering */
+        background-color: var(--black);
+        padding: 0;
+        margin: 0;
+    }
+    nav label span {
+        display: block;
+        background: var(--white);
+        height: 3px;
+        width: 25px;
+        position: relative;
+        transition: 0.3s;
+    }
+    nav ul li {
+        text-align: center;
+    }
+    nav ul li a {
+        display: block;
+        padding: 1.25rem;
+        color: #007BFF;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    nav ul li a:hover {
+        background-color: var(--blue); 
+        color: var(--black);           
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav label span::before, 
+    nav label span::after {
+        content: ""; 
+        display: block;
+        background: var(--white);
+        height: 3px;
+        width: 25px;
+        position: absolute;
+        left: 0;
+        transition: 0.3s;
+    }
+    nav label span::before { 
+        top: -8px; 
+    }
+    nav label span::after { 
+        top: 8px; 
+    }
+    #menu-toggle {
+        display: none;
+    }
+    #menu-toggle:checked ~ ul {
+        display: block;
+        width: 100%; 
+        margin-top: 1rem;
+    }
+    
     main{
         background-color: #EAEAEA;
         color: #000000;
@@ -181,9 +274,16 @@ table {
         border-radius: 0.75rem;
         margin-bottom: 0.75rem;
         transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+        cursor: pointer;
+        will-change: transform;
     }
     .consulting:hover, .solutions:hover, .mergers:hover, .digital:hover, .advisory:hover, .innovation:hover {
         transform: translateY(-5px); 
+    }
+    .consulting:active, .solutions:active, .mergers:active, 
+    .digital:active, .advisory:active, .innovation:active {
+        transform: translateY(-15px); 
+        transition: transform 0.1s ease-out;
     }
     #results{
         background-color: #007BFF;
@@ -194,7 +294,20 @@ table {
         font-size: .875em;
         font-weight: 400;
         line-height: 1.25rem;
-     }
+    }
+    #results .growth:active .bar {
+        animation: none; 
+        height: 0;      
+        transition: height 0.1s ease; 
+    }
+    #results .growth .bar {
+        animation: stepUp 1s ease-in-out forwards;
+    }
+    #results .growth:active h3 {
+        opacity: 0.5;
+        transform: scale(0.98);
+        transition: 0.2s;
+    }
     .profits, .growth{
         background-color: #007BFF;
         color: #EAEAEA;
@@ -273,19 +386,20 @@ table {
         color:#EAEAEA;
     }
     /* ADD FLOATING SVG LOGO BEFORE THE H1 */
-    #logo h1::before{
+    .logo h1::before {
         content: "";
-        display: inline-block;
-        position: relative;
-        left:-.5rem;
-        width: 3.75rem;
-        height: 3.75rem;
+        display: inline-block; 
+        width: 3.5rem;         
+        height: 3.5rem;
         background: url('images/vanguard-logo.svg') no-repeat center/contain;
-        margin-right: 0.5rem;
-        vertical-align: middle;
-        animation: logoFloat 10s ease-in-out infinite; /* Always active */
+        margin-right: 0.75rem; 
+        vertical-align: middle; 
+        
+       
+        animation: logoFloat 10s ease-in-out infinite;
         will-change: transform;
     }
+    
     @keyframes logoFloat {
         0% {
             transform: translateY(0px) rotate(0deg);
