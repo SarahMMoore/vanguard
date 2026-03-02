@@ -171,7 +171,6 @@ table {
         width: 100%; 
         margin-top: 1rem;
     }
-    
     main{
         background-color: #EAEAEA;
         color: #000000;
@@ -268,7 +267,7 @@ table {
         background-color: var(--red); 
         transform: scale(1.02); 
     }
-    .consulting, .solutions, .mergers, .digital, .advisory, .innovation{
+    .consulting, .solutions, .mergers, .digital, .advisory, .corp-inn{
         background-color: #007BFF;
         color: #EAEAEA;
         border-radius: 0.75rem;
@@ -277,11 +276,11 @@ table {
         cursor: pointer;
         will-change: transform;
     }
-    .consulting:hover, .solutions:hover, .mergers:hover, .digital:hover, .advisory:hover, .innovation:hover {
+    .consulting:hover, .solutions:hover, .mergers:hover, .digital:hover, .advisory:hover, .corp-inn:hover {
         transform: translateY(-5px); 
     }
     .consulting:active, .solutions:active, .mergers:active, 
-    .digital:active, .advisory:active, .innovation:active {
+    .digital:active, .advisory:active, .corp-inn:active {
         transform: translateY(-15px); 
         transition: transform 0.1s ease-out;
     }
@@ -315,14 +314,13 @@ table {
     table{
         background-color: #000000;
         color: #EAEAEA;
-        min-width: 21.25rem;
         text-align: center;
         border-collapse: collapse;
         width: 100%;
         border: 1px solid #333333;
     }
     th, td {
-        border: 1px solid #333333;    /* Internal cell borders */
+        border: 1px solid #333333;    
         padding: 1rem;
         text-align: center;
     }
@@ -399,7 +397,6 @@ table {
         animation: logoFloat 10s ease-in-out infinite;
         will-change: transform;
     }
-    
     @keyframes logoFloat {
         0% {
             transform: translateY(0px) rotate(0deg);
@@ -460,18 +457,74 @@ table {
     
 /* MEDIA QUERIES (MEDIUM) */ 
 @media only screen and (min-width: 800px) {
-    #results {
-        grid-template-columns: 1fr 1fr;
+    nav label {
+        display: none; 
     }
-    .results-container {
+    nav ul {
+        display: flex !important; 
         flex-direction: row;
-        justify-content: space-between;
+        background-color: transparent;
+        width: auto;
+        margin: 0;
     }
-    .results-table {
-        width: 50%;
+    nav ul li {
+        border: none;
+        margin-left: 2rem;
     }
-    .bar-chart {
-        width: 50%;
+    nav ul li a {
+        padding: 0;
+        font-size: 1rem;
+    }
+    #offer .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 1.5rem; 
+        padding-bottom: 2rem;
+    }
+    #offer h2 {
+        grid-column: 1 / -1; 
+    }
+   
+    #results .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 1.5rem; 
+        padding-bottom: 2rem;
+    }
+    #results h2, #results p{
+        grid-column: 1 / -1;
+    }
+    
+    th, td {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;    
+    }
+    .profits {
+        grid-column: 1 / 1;
+
+    }
+    .growth {
+        grid-column: 2 / 2;
+
+    }
+    #contact .container {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+    #contact .form {
+        width: 100%;
+        max-width: 700px; 
+    }
+    .form, .info {
+        width: 100%;
+        max-width: 700px; 
+        text-align: center;
+    }
+    #contact .info {
+        width: 100%;
+        text-align: center;
+        margin-top: 3rem; 
     }
 }
 
