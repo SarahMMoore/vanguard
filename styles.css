@@ -258,7 +258,7 @@ table {
         font-weight: 700;
         min-width: 85%;
         height: 2.5rem;
-        border-radius: 0.75rem;
+        border-radius: 0.25rem;
         transition: background-color 0.3s ease, transform 0.2s ease;
         cursor: pointer;
         border: none;
@@ -472,7 +472,6 @@ table {
         margin-left: 2rem;
     }
     nav ul li a {
-        padding: 0;
         font-size: 1rem;
     }
     #offer .container {
@@ -484,7 +483,6 @@ table {
     #offer h2 {
         grid-column: 1 / -1; 
     }
-   
     #results .container{
         display: grid;
         grid-template-columns: 1fr 1fr; 
@@ -494,18 +492,15 @@ table {
     #results h2, #results p{
         grid-column: 1 / -1;
     }
-    
     th, td {
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;    
     }
     .profits {
         grid-column: 1 / 1;
-
     }
     .growth {
         grid-column: 2 / 2;
-
     }
     #contact .container {
         display: flex;
@@ -529,4 +524,46 @@ table {
 }
 
     /* MEDIA QUERIES (LARGE) */
+@media only screen and (min-width: 800px) {
+    #offer .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; 
+        gap: 1.5rem; 
+        padding-bottom: 2rem;
+    }
+    #offer h2 {
+        grid-column: 1 / -1; 
+    }
+    #contact .form{
+        text-align: left;
+        display: grid;
+    }
+    #contact-form{
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+    input#name{
+        grid-column: 1;
+        grid-row: 2;
+    }
+    input#email{
+        grid-column: 2;
+        grid-row: 2;
+    }
+    input#company{
+        grid-column: 1;
+        grid-row: 4;
+    }
+    input#industry{
+        grid-column: 2;
+        grid-row: 4;
+    }
+    textarea#help{
+        grid-column: 1;
+        grid-row: 6;
+    }
+    button{
+        grid-column: 2;
+        grid-row: 6;
+    }
 }
