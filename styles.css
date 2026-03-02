@@ -61,6 +61,7 @@ table {
     --black: #000000;
     --charcoal: #333333;
     --font: "Inter", sans-serif;
+    --height: 12.5rem;
 }
 
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
@@ -90,7 +91,7 @@ table {
         width: 100%;
     }
     #innovation::before{
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -100,10 +101,10 @@ table {
         background-image: linear-gradient(to bottom, #007bff, transparent);
     }   
     .blur-area{
+        display: grid;
         min-width: 21rem;
         backdrop-filter: blur(10px);
         background-color: rgba(33, 33, 33, 0.1);
-        filter: none;
         justify-items: center;
     }
     #innovation h2{
@@ -118,8 +119,10 @@ table {
         line-height: 1.25rem;
     }   
     #innovation a{
+        display: inline-block;
         background-color: #007BFF;
         color: #EAEAEA;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         font-family: var(--font);
         font-size: 1rem;
         font-weight: 700;
@@ -127,12 +130,24 @@ table {
         border-radius: 12px;
         text-decoration: none;
     }
-    #expertise h2, #offer h2{
+    #innovation a:hover {
+        background-color: var(--red); 
+        transform: translateY(-5px); 
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+        color: var(--white); 
+    }
+    #expertise h2, #offer h2, #results h2, #results h3{
         padding-left: .875rem;
         font-size: 1.5rem;
         font-weight: 700;
         padding: 1.75rem 0 1.75rem 0.875rem;
     }
+    #expertise p{
+        font-size: .875em;
+        font-weight: 300;
+        margin-right: -15px;
+        line-height: 1rem;
+     }
     #offer h3{
         font-size: 1.125rem;
         font-weight: 700;
@@ -152,19 +167,22 @@ table {
         min-width: 85%;
         height: 2.5rem;
         border-radius: 0.75rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+        border: none;
+    }
+    #contact button:hover {
+        background-color: var(--red); 
+        transform: scale(1.02); 
     }
     .consulting, .solutions, .mergers, .digital, .advisory, .innovation{
         background-color: #007BFF;
         color: #EAEAEA;
         border-radius: 0.75rem;
         margin-bottom: 0.75rem;
-        transition: transform 0.2s ease;
-        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
     }
-    .consulting:active, .solutions:active, .mergers:active, .digital:active, .advisory:active, .innovation:active {
-        transform: translateY(-5px); 
-    }
-    .consulting.is-up, .solutions.is-up, .mergers.is-up .digital.is-up, .advisory.is-up, .innovation.is-up{
+    .consulting:hover, .solutions:hover, .mergers:hover, .digital:hover, .advisory:hover, .innovation:hover {
         transform: translateY(-5px); 
     }
     #results{
@@ -172,6 +190,11 @@ table {
         color: #EAEAEA;
         padding-bottom: 1.25rem;
     }
+    #results p{
+        font-size: .875em;
+        font-weight: 400;
+        line-height: 1.25rem;
+     }
     .profits, .growth{
         background-color: #007BFF;
         color: #EAEAEA;
@@ -179,32 +202,56 @@ table {
     table{
         background-color: #000000;
         color: #EAEAEA;
-
         min-width: 21.25rem;
         text-align: center;
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #333333;
     }
+    th, td {
+        border: 1px solid #333333;    /* Internal cell borders */
+        padding: 1rem;
+        text-align: center;
+    }
+    tr:nth-child(even) {
+        background-color: #333333;
+        color: #EAEAEA;
+    }
+    tr:nth-child(odd) {
+        background-color: #000000;
+        color: #EAEAEA;
+    }
+   
     footer{
         background-color: #000000;
         color: #EAEAEA;
+    }
+    footer h2{
+        font-size: 1.875rem;
+        font-weight: 700;
+        padding: 1.75rem .875rem;
     }
     .info{
         text-align: center;
         margin-top: 2.5rem;
         padding-bottom: 1.875rem;
+        line-height: 1.5rem;
     }
     #contact-form {
         display: grid;
         min-width: 85%;
         text-align: left;
+        
     }
     #contact-form input{
         height: 2rem;
         text-align: left; 
+        border: 2px solid #007bff;
     }
     #contact-form #help{
         height: 3.75rem;
         margin-bottom: 1.875rem;
- 
+        border: 2px solid #007bff;
     }
     #contact-form label{
         padding-top: 1rem;
@@ -226,7 +273,7 @@ table {
         color:#EAEAEA;
     }
     /* ADD FLOATING SVG LOGO BEFORE THE H1 */
-    #logo::before{
+    #logo h1::before{
         content: "";
         display: inline-block;
         position: relative;
@@ -235,10 +282,25 @@ table {
         height: 3.75rem;
         background: url('images/vanguard-logo.svg') no-repeat center/contain;
         margin-right: 0.5rem;
+        vertical-align: middle;
         animation: logoFloat 10s ease-in-out infinite; /* Always active */
         will-change: transform;
     }
-    /* THIS ONE IS DONE FOR YOU */
+    @keyframes logoFloat {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+            transform: translateY(-8px) rotate(2deg);
+        }
+        66% {
+            transform: translateY(4px) rotate(-1deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+    }
+   /* THIS ONE IS DONE FOR YOU */
     #bar-chart {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -250,7 +312,6 @@ table {
         max-width: 800px;
         padding: 1rem;
         position: relative;
-
     }
     /* ADD ON TRANSITION ON HEIGHT */
     .bar {
@@ -258,8 +319,9 @@ table {
         background: var(--charcoal);
         border-radius: 10px;
         position: relative;
-        transition: ;
+        transition: height 0.5s ease-in-out;
         height: 0;
+        animation: stepUp 1s ease-in-out forwards;
     }
     /* THIS ONE IS DONE FOR YOU */
     .bar::after {
@@ -280,11 +342,7 @@ table {
             height: var(--height);
         }
     }
-    /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-    .bar {
-        animation: stepUp 1s ease-in-out forwards;
-    }
-
+}
 
 
     
