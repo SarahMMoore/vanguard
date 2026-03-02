@@ -457,11 +457,9 @@ table {
         }
     }
 }
-
-
     
 /* MEDIA QUERIES (MEDIUM) */ 
-
+@media only screen and (min-width: 800px) {
     #results {
         grid-template-columns: 1fr 1fr;
     }
@@ -475,7 +473,7 @@ table {
     .bar-chart {
         width: 50%;
     }
-
+}
 
     /* MEDIA QUERIES (LARGE) */
 }
